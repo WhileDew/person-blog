@@ -25,5 +25,5 @@ aliyun:
     file:
       endpoint: oss-cn-shenzhen.aliyuncs.com
       keyid: LTAI5tQKDSjdrJNNk4JPRvRn
-      keysecret: 5ozspSKwaUGLp9xWYJB09ywQlaBTSr
+      keysecrect: # 阿里云秘钥
       bucketname: edu-200298
