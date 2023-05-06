@@ -1,0 +1,34 @@
+# 服务端口
+server:
+  port: 8000
+spring:
+  application:
+    # 服务名称
+    name: service-gateway
+  # nacos服务地址
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    # 使用服务发现路由
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: service-blog
+          uri: lb://service-blog # 服务注册名称
+          predicates:
+            - Path=/blog/** # 设置路由断言
+        - id: service-barrage
+          uri: lb://service-barrage
+          predicates:
+            - Path=/barrage/**
+        - id: service-user
+          uri: lb://service-user
+          predicates:
+            - Path=/user/**
+        - id: service-email
+          uri: lb://service-email
+          predicates:
+            - Path=/email/**
